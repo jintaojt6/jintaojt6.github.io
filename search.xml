@@ -33,6 +33,35 @@
     
     
     <entry>
+      <title>vue-cli4目录结构</title>
+      <link href="/2022/07/12/sggsph0001/"/>
+      <url>/2022/07/12/sggsph0001/</url>
+      
+        <content type="html"><![CDATA[<ul><li>原目录：<ul><li>node_modules：项目依赖文件夹</li><li>public：一般放置一些静态资源（图片），webpack 在打包时会将此文件夹中的内容原封不动打包至 dist 文件夹 </li><li>src（源代码文件夹）：<ul><li>assets：一般放置一些静态资源（多个组件共用），webpack 打包时会把此文件夹中的内容当作一个模块打包至 js 文件夹</li><li>components：一般放置非路由组件（全局组件）</li><li>App.vue：项目唯一根组件</li><li>main.js：程序的入口文件，也是整个程序中最先执行的文件</li></ul></li><li>.gitgnore：代码提交至仓库时忽略文件配置</li><li>babel.config.js：babel 配置文件</li><li>package.json：项目配置文件，记录项目信息、项目依赖、项目如何运行</li><li>package-lock.json：缓存行文件，记录所有安装包的信息。</li><li>README.md：说明性文件，告诉他人如何使用本项目。</li></ul></li><li>添加目录<ul><li>vue.config.js：vue-cli 中的 webpack 配置文件。(<a href="https://cli.vuejs.org/zh/config/">配置参考 | Vue CLI (vuejs.org)</a>)</li><li>jsconfig.json：目录中存在<code>jsconfig.json</code>文件表示改目录是JavaScript项目的根目录。<code>jsconfig.json</code>的配置可以对你的文件所在目录下的所有 js 代码做出<strong>个性化支持</strong>。<a href="https://juejin.cn/post/7004748084374831117">你需要知道jsconfig.json 都在这里啦 - 掘金 (juejin.cn)</a></li><li>src<ul><li>pages|views：放置路由组件</li><li>router：路由配置文件夹</li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+          <category> examples </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue2 </tag>
+            
+            <tag> vue-cli4 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>first</title>
       <link href="/2022/07/11/first/"/>
       <url>/2022/07/11/first/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="first, 枫林晚">
+    <meta name="keywords" content="vue-cli4目录结构, 枫林晚">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>first | 枫林晚</title>
+    <title>vue-cli4目录结构 | 枫林晚</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -419,12 +419,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">first</h1>
+                    <h1 class="description center-align post-title">vue-cli4目录结构</h1>
                 </div>
             </div>
         </div>
@@ -538,12 +538,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue2/">
+                                <span class="chip bg-color">vue2</span>
+                            </a>
+                        
+                            <a href="/tags/vue-cli4/">
+                                <span class="chip bg-color">vue-cli4</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/vue/" class="post-category">
+                                vue
+                            </a>
+                        
+                            <a href="/categories/vue/examples/" class="post-category">
+                                examples
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -552,7 +573,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-11
+                    2022-07-12
                 </div>
                 
 
@@ -561,7 +582,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    167
+                    340
                 </div>
                 
 
@@ -591,91 +612,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><hr>
-<p>人生若只如初见，何事秋风悲画扇。  </p>
-<p>等闲变却故人心，却道故人心易变。 </p>
-<hr>
-<p><em>斜体文本</em></p>
-<hr>
-<p><strong>粗体文本</strong></p>
-<p><em><strong>粗斜体文本</strong></em></p>
-<p><del>删除线</del></p>
-<p><u>下划线</u></p>
-<p>脚注[^脚注]</p>
-<ul>
-<li><p>北京</p>
-</li>
-<li><p>上海</p>
-<ol>
-<li>杨浦<ul>
-<li>上海理工</li>
-<li>复旦</li>
-<li>同济</li>
+                <ul>
+<li>原目录：<ul>
+<li>node_modules：项目依赖文件夹</li>
+<li>public：一般放置一些静态资源（图片），webpack 在打包时会将此文件夹中的内容原封不动打包至 dist 文件夹 </li>
+<li>src（源代码文件夹）：<ul>
+<li>assets：一般放置一些静态资源（多个组件共用），webpack 打包时会把此文件夹中的内容当作一个模块打包至 js 文件夹</li>
+<li>components：一般放置非路由组件（全局组件）</li>
+<li>App.vue：项目唯一根组件</li>
+<li>main.js：程序的入口文件，也是整个程序中最先执行的文件</li>
 </ul>
 </li>
-<li>闵行</li>
-<li>徐汇</li>
-</ol>
+<li>.gitgnore：代码提交至仓库时忽略文件配置</li>
+<li>babel.config.js：babel 配置文件</li>
+<li>package.json：项目配置文件，记录项目信息、项目依赖、项目如何运行</li>
+<li>package-lock.json：缓存行文件，记录所有安装包的信息。</li>
+<li>README.md：说明性文件，告诉他人如何使用本项目。</li>
+</ul>
 </li>
-<li><p>广州</p>
-</li>
-<li><p>深圳</p>
+<li>添加目录<ul>
+<li>vue.config.js：vue-cli 中的 webpack 配置文件。(<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/config/">配置参考 | Vue CLI (vuejs.org)</a>)</li>
+<li>jsconfig.json：目录中存在<code>jsconfig.json</code>文件表示改目录是JavaScript项目的根目录。<code>jsconfig.json</code>的配置可以对你的文件所在目录下的所有 js 代码做出<strong>个性化支持</strong>。<a target="_blank" rel="noopener" href="https://juejin.cn/post/7004748084374831117">你需要知道jsconfig.json 都在这里啦 - 掘金 (juejin.cn)</a></li>
+<li>src<ul>
+<li>pages|views：放置路由组件</li>
+<li>router：路由配置文件夹</li>
+</ul>
 </li>
 </ul>
-<blockquote>
-<p>区块</p>
-<p>区块</p>
-<blockquote>
-<p>区块中的列表</p>
-<ol>
-<li>哦吼吼</li>
-<li>啊哈哈</li>
-</ol>
-</blockquote>
-</blockquote>
-<p><code>printf()</code></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'body main'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'i was clicked!'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a>一下你就知道</p>
-<p><a href="http://jintaojt6.top/">http://jintaojt6.top</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.google.com/">google</a></p>
-<img src="http://static.runoob.com/images/runoob-logo.png" width="50%">
-
-
-
-
-
-<table>
-<thead>
-<tr>
-<th align="center">序号</th>
-<th align="center">城市</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">北京</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">上海</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">广州</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">深圳</td>
-</tr>
-</tbody></table>
-<p>$$<br>\begin{Bmatrix}<br>    a &amp; b \\ c &amp; d \\ e &amp; f<br>\end{Bmatrix}<br>$$</p>
-<p><span class="github-emoji"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<p><span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<p><span class="github-emoji"><span>😠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f620.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+</li>
+</ul>
 
                 
             </div>
@@ -702,7 +667,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jintaojt6.top/2022/07/11/first/">http://jintaojt6.top/2022/07/11/first/</a>
+                    <a href="http://jintaojt6.top/2022/07/12/sggsph0001/">http://jintaojt6.top/2022/07/12/sggsph0001/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -739,7 +704,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/vue2/">
+                                    <span class="chip bg-color">vue2</span>
+                                </a>
+                            
+                                <a href="/tags/vue-cli4/">
+                                    <span class="chip bg-color">vue-cli4</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -911,13 +884,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/12/sggsph0001/">
+                <a href="/2022/07/12/vue_router_001/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="vue-cli4目录结构">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="vue_router_001">
                         
-                        <span class="card-title">vue-cli4目录结构</span>
+                        <span class="card-title">vue_router_001</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -938,8 +911,8 @@
                                     vue
                                 </a>
                             
-                            <a href="/categories/vue/examples/" class="post-category">
-                                    examples
+                            <a href="/categories/vue/vue-router/" class="post-category">
+                                    vue-router
                                 </a>
                             
                             
@@ -949,12 +922,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue2/">
-                        <span class="chip bg-color">vue2</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
-                    <a href="/tags/vue-cli4/">
-                        <span class="chip bg-color">vue-cli4</span>
+                    <a href="/tags/vue-router/">
+                        <span class="chip bg-color">vue-router</span>
                     </a>
                     
                 </div>
@@ -965,7 +938,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/07/11/first/">
@@ -994,7 +967,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1122,13 +1094,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
