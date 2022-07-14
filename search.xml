@@ -4,7 +4,38 @@
   
     
     <entry>
-      <title>vue_router_001</title>
+      <title>nProgress</title>
+      <link href="/2022/07/14/nprogress/"/>
+      <url>/2022/07/14/nprogress/</url>
+      
+        <content type="html"><![CDATA[<p><code>nProgress</code> 是一个轻量级的进度条组件，使用简便，可以很方便集成到单页面应用中，一般用于请求后端接口时的进度展示。</p><ul><li><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-none"><code class="language-none">npm install --save nprogress<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在一个大型项目中，我们通常会二次封装 axios，在发起请求时和接收到响应时，进行拦解，插入其他操作。比如添加请求响应进度条</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//  api/request.js：二次封装 axios 的文件</span>  <span class="token comment">//  引入 nProgress 插件及其样式文件</span>  <span class="token keyword">import</span> nProgress <span class="token keyword">from</span> <span class="token string">"nprogress"</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token string">'nprogress/nprogress.css'</span><span class="token punctuation">;</span>  <span class="token comment">//  请求拦截器：在请求真正发出之前进行拦截，并进行一些操作</span>  request<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token comment">//  请求进度条开始</span>    nProgress<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//  ...</span>    <span class="token keyword">return</span> config<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token comment">//  响应拦截器：在请求响应之后进行拦截，并进行一些操作</span>  request<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token comment">// 请求进度条结束</span>    nProgress<span class="token punctuation">.</span><span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//  ...</span>    <span class="token keyword">return</span> response<span class="token punctuation">.</span>data<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>如果是普通的网络请求，我们只需在发出请求时执行<code>nProgress</code>的开始函数<code>nProgress.start()</code>，在得到响应后执行<code>nProgress</code>的停止函数<code>nProgress.stop()</code>。</p></li><li><h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>如果我们想要修改进度条的样式，只需修改<code>node_modules/nProgress/nProgress.css</code>文件即可。例如：修改进度条的颜色</p><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#nprogress .bar</span> <span class="token punctuation">{</span>  <span class="token comment">/* background: #29d; */</span> //原代码颜色  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>224<span class="token punctuation">,</span> 31<span class="token punctuation">,</span> 144<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>  <span class="token property">z-index</span><span class="token punctuation">:</span> 1031<span class="token punctuation">;</span>  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>  <span class="token property">height</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+          <category> utils </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> utils </tag>
+            
+            <tag> nProgress </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue router 入门</title>
       <link href="/2022/07/12/vue_router_001/"/>
       <url>/2022/07/12/vue_router_001/</url>
       
@@ -33,11 +64,11 @@
     
     
     <entry>
-      <title>vue-cli4目录结构</title>
+      <title>vue-cli4 目录结构</title>
       <link href="/2022/07/12/sggsph0001/"/>
       <url>/2022/07/12/sggsph0001/</url>
       
-        <content type="html"><![CDATA[<ul><li>原目录：<ul><li>node_modules：项目依赖文件夹</li><li>public：一般放置一些静态资源（图片），webpack 在打包时会将此文件夹中的内容原封不动打包至 dist 文件夹 </li><li>src（源代码文件夹）：<ul><li>assets：一般放置一些静态资源（多个组件共用），webpack 打包时会把此文件夹中的内容当作一个模块打包至 js 文件夹</li><li>components：一般放置非路由组件（全局组件）</li><li>App.vue：项目唯一根组件</li><li>main.js：程序的入口文件，也是整个程序中最先执行的文件</li></ul></li><li>.gitgnore：代码提交至仓库时忽略文件配置</li><li>babel.config.js：babel 配置文件</li><li>package.json：项目配置文件，记录项目信息、项目依赖、项目如何运行</li><li>package-lock.json：缓存行文件，记录所有安装包的信息。</li><li>README.md：说明性文件，告诉他人如何使用本项目。</li></ul></li><li>添加目录<ul><li>vue.config.js：vue-cli 中的 webpack 配置文件。(<a href="https://cli.vuejs.org/zh/config/">配置参考 | Vue CLI (vuejs.org)</a>)</li><li>jsconfig.json：目录中存在<code>jsconfig.json</code>文件表示改目录是JavaScript项目的根目录。<code>jsconfig.json</code>的配置可以对你的文件所在目录下的所有 js 代码做出<strong>个性化支持</strong>。<a href="https://juejin.cn/post/7004748084374831117">你需要知道jsconfig.json 都在这里啦 - 掘金 (juejin.cn)</a></li><li>src<ul><li>pages|views：放置路由组件</li><li>router：路由配置文件夹</li></ul></li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<ul><li>原目录：<ul><li>node_modules：项目依赖文件夹</li><li>public：一般放置一些静态资源（图片），webpack 在打包时会将此文件夹中的内容原封不动打包至 dist 文件夹 </li><li>src（源代码文件夹）：<ul><li>assets：一般放置一些静态资源（多个组件共用），webpack 打包时会把此文件夹中的内容当作一个模块打包至 js 文件夹</li><li>components：一般放置非路由组件（全局组件）</li><li>App.vue：项目唯一根组件</li><li>main.js：程序的入口文件，也是整个程序中最先执行的文件</li></ul></li><li>.gitgnore：代码提交至仓库时忽略文件配置</li><li>babel.config.js：babel 配置文件</li><li>package.json：项目配置文件，记录项目信息、项目依赖、项目如何运行</li><li>package-lock.json：缓存行文件，记录所有安装包的信息。</li><li>README.md：说明性文件，告诉他人如何使用本项目。</li></ul></li><li>添加目录<ul><li>vue.config.js：vue-cli 中的 webpack 配置文件。(<a href="https://cli.vuejs.org/zh/config/">配置参考 | Vue CLI (vuejs.org)</a>)</li><li>jsconfig.json：目录中存在<code>jsconfig.json</code>文件表示改目录是JavaScript项目的根目录。<code>jsconfig.json</code>的配置可以对你的文件所在目录下的所有 js 代码做出<strong>个性化支持</strong>。<a href="https://juejin.cn/post/7004748084374831117">你需要知道jsconfig.json 都在这里啦 - 掘金 (juejin.cn)</a></li><li>src<ul><li>pages|views：放置路由组件</li><li>router：路由配置文件夹</li><li>store：vuex 全局状态管理文件夹</li></ul></li></ul></li></ul>]]></content>
       
       
       <categories>
